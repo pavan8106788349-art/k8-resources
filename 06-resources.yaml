@@ -6,13 +6,12 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    resources: 
-     # softlimit
-    requests:
-      memory: "64Mi" # RAM
-      cpu: "100m" # CPU
-
+    resources:
+      # soft limit
+      requests:
+        memory: "64Mi" # RAM
+        cpu: "100m" # CPU
       # hard limit
       limits:
-        memory: "128" #RAM
+        memory: "128Mi" # RAM
         cpu: "150m" # CPU
