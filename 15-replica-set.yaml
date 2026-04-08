@@ -19,14 +19,12 @@ selector:
     component: frontend 
 # This is pod definition, pod is subset of replicaset    
 template:
-    metadata:
-      labels:
-        project: roboshop
-        purpose: rb-demo
-        tier: frontend
-        component: frontend 
+  metadata:
+    labels:
+      project: roboshop
+      component: frontend
+      environment: dev
     spec:
       containers:
       - name: nginx
         image: nginx 
-        
