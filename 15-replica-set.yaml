@@ -29,3 +29,4 @@ template:
       containers:
       - name: nginx
         image: nginx 
+        
