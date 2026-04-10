@@ -8,15 +8,14 @@ spec:
     name: nginx
     volumeMounts:
     - mountPath: /var/log/nginx
-      name: cache-volume
-  containers:
+      name: nginx-logs
   - image: almalinux:9
     name: almalinux
     volumeMounts:
     - mountPath: /mnt/nginx-logs
-      name: cache-volume
-      read only: true 
-# This is at pod level      
+      name: nginx-logs
+      readOnly: true
+  # This is at the pod level
   volumes:
   - name: nginx-logs
     emptyDir:
