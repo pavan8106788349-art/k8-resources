@@ -26,4 +26,4 @@ spec:
   volumes:
   - name: html-data
     persistentVolumeClaim:
-      claimName: roboshop-ebs            
+      claimName: ebs-dynamic           
