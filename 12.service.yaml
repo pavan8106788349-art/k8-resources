@@ -1,0 +1,14 @@
+apiversion: v1
+kind: service
+metadata:
+  name: nginx
+spec:
+ selector:
+   # labels are used as selectors
+   project: roboshop
+   component: frontend
+   environment: dev
+ ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
