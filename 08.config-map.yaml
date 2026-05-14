@@ -1,8 +1,8 @@
-apiversion: v1
-kind: configMap
+apiVersion: v1
+kind: ConfigMap
 metadata:
- name: nginx-config
+  name: nginx-config
 data:
   course: "kubernetes"
   duration: "15hr"
-  trainer: "sivakumar reddy"  
+  trainer: "sivakumar reddy"
