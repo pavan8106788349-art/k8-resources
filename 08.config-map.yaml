@@ -1,0 +1,8 @@
+apiversion: v1
+kind: configMap
+metadata:
+ name: nginx-config
+data:
+  course: "kubernetes"
+  duration: "15hr"
+  trainer: "sivakumar reddy"  
