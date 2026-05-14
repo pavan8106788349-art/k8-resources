@@ -3,16 +3,13 @@ kind: Pod
 metadata:
   name: resources-demo
 spec:
- containers:
- - name: nginx
-   image: nginx
-   resources:
-    # softlimit
-   requests:
-    memory: "64Mi" # RAM
-    cpu: "250m"   # CPU
-  
-   # hardlink
-   limits: 
-    memory: "128Mi" # RAM
-    cpu: "500m"    # CPU
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:   # soft limit
+        memory: "64Mi"
+        cpu: "250m"
+      limits:     # hard limit
+        memory: "128Mi"
+        cpu: "500m"
