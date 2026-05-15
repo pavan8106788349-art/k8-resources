@@ -1,0 +1,31 @@
+apiversion: apps/v1
+kind: Repliaceset
+metadata:
+ name: nginx
+  # these are replicaset labels
+ labels:
+  project: roboshop
+  purpose: rs-demo
+  tier: frontend
+  component: frontend
+spec:
+  replicas: 3
+  selector:
+   # using these labels replica set selects the pod
+  matchLabels: 
+   project: roboshop
+   purpose: rs-demo
+   tier: frontend
+   component: frontend
+  template:
+    metadata:
+      labels:
+         project: roboshop
+         purpose: rs-demo
+         tier: frontend 
+         component: frontend     
+   # This is pod definition, pod is subset of replicaset     
+    spec:
+      containers:
+      - name: nginx
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5   
