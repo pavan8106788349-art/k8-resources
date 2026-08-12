@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: nginx
+    name:  nginx
+    volumeMounts:
+    - mountPath: /var/log/nginx
+      name: nginx-logs
+  - image: almalinux:9
+    name:  almalinux
+    volumeMounts:
+    - mountPath: /mnt/nginx-logs
+      name: nginx-logs
+      readOnly: true 
+  # This is at pod level      
+  volumes:
+  - name: nginx-logs
+    emptyDir:
+      sizeLimit: 500Mi
