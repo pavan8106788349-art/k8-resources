@@ -4,9 +4,9 @@ metadata:
   name: ebs
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   capacity:
-    storage: 5Gi # should be less than or equal to your disk size
+    storage: 5Gi
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
@@ -17,8 +17,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs
 spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: ebs # This is PV name
   accessModes:
     - ReadWriteOnce
   resources:
@@ -31,13 +29,13 @@ metadata:
   name: app
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    volumeMounts:
-    - name: html-data
-      mountPath: /usr/share/nginx/html
+    - name: nginx
+      image: nginx
+      volumeMounts:
+        - name: html-data
+          mountPath: /usr/share/nginx/html
   volumes:
-  - name: html-data
-    persistentVolumeClaim:
-      claimName: ebs      
-      
+    - name: html-data
+      persistentVolumeClaim:
+        claimName: ebs
+
