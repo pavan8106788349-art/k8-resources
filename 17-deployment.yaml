@@ -51,13 +51,11 @@ kind: Service
 metadata:
   name: nginx-headless
 spec:
-  clusterIP: None  
-spec:
+  clusterIP: None
   selector:
-    # labels are used as selectors
     project: roboshop
     component: frontend
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80    
+    targetPort: 80
